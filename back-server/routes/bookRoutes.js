@@ -69,16 +69,18 @@ router.post('/:bookId/reviews', async (req, res) => {
 
     try {
         const book = await Book.findById(bookId);
-        if (!book) return res.status(404).json({message: 'Книга не найдена!'})
-        
-        const review = {user: userId, rating, comment};
+        if (!book) return res.status(404).json({ message: 'Книга не найдена!' });
+
+       
+
+        const review = { user: userId, rating, comment };
         book.reviews.push(review);
-        book.updateRating();
+        book.updateRating(); 
         await book.save();
-        res.json({message: 'Отзыв добавлен!', review});
-    }
-    catch(error){
-        res.status(500).json({message: 'Ошибка при добавлении отзыва!', error});
+
+        res.json({ message: 'Отзыв добавлен!', review });
+    } catch (error) {
+        res.status(500).json({ message: 'Ошибка при добавлении отзыва!', error });
     }
 });
 
@@ -166,15 +168,5 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-export const addReview = async (bookId, userId, rating, comment) => {
-    const token = localStorage.getItem('token');
-    const response = await axios.post(`${API_URL}/${bookId}/reviews`, {
-        userId,
-        rating,
-        comment
-    }, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
-    return response.data;
-};
+
 module.exports = router;

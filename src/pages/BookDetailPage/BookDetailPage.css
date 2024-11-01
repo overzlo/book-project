@@ -36,3 +36,21 @@
 .favIcon:hover {
     color: red;
 }
+.book-reviews {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.book-reviews ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-reviews li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.book-reviews strong {
+    color: #333;
+}

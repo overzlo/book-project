@@ -79,3 +79,14 @@ export const getBooksBySearch = async ({ title, author, category }) => {
     return response.data;
 };
 
+export const addReview = async (bookId, userId, rating, comment) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.post(`${API_URL}/${bookId}/reviews`, {
+        userId,
+        rating,
+        comment
+    }, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+};

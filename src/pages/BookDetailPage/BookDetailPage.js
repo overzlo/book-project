@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import FavButton from '../../components/FavButton/FavButton';
 import './BookDetailPage.css';
+import AddReview from '../../components/AddReview/AddReview';
 
 const BookDetailPage = () => {
     const { id } = useParams();
@@ -31,6 +32,14 @@ const BookDetailPage = () => {
 
         fetchBook();
     }, [id]);
+
+    // Функция для обновления отзывов на странице после добавления нового
+    const handleReviewAdded = (newReview) => {
+        setBook(prevBook => ({
+            ...prevBook,
+            reviews: [...prevBook.reviews, newReview]
+        }));
+    };
 
     if (!book) return <div>Загрузка...</div>;
 
@@ -56,8 +65,24 @@ const BookDetailPage = () => {
                     </Card>
                 </Col>
             </Row>
+
+            <Row className="my-4">
+                <Col md={12}>
+                    <h3>Отзывы</h3>
+                    <ul>
+                        {book.reviews.map(review => (
+                            <li key={review._id}>
+                                <strong>Рейтинг: {review.rating}</strong> - {review.comment}
+                            </li>
+                        ))}
+                    </ul>
+                    {user && (
+                        <AddReview bookId={book._id} userId={user._id} onReviewAdded={handleReviewAdded} />
+                    )}
+                </Col>
+            </Row>
+
         </Container>
     );
 };
-
-export default BookDetailPage;
+export default BookDetailPage

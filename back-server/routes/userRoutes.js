@@ -72,7 +72,6 @@ router.post('/:userId/history/:bookId', async (req, res) => {
     }
 });
 
-// Получить избранные книги пользователя
 router.get('/:userId/favorites', async (req, res) => {
     const { userId } = req.params;
     try {
@@ -93,7 +92,7 @@ router.delete('/:userId/favorites/:bookId', async (req, res) => {
 
         const bookIndex = user.favorites.indexOf(bookId);
         if (bookIndex > -1) {
-            user.favorites.splice(bookIndex, 1); // Удаляем книгу из избранного
+            user.favorites.splice(bookIndex, 1); 
             await user.save();
             res.json({ message: 'Книга удалена из избранного' });
         } else {
@@ -104,7 +103,6 @@ router.delete('/:userId/favorites/:bookId', async (req, res) => {
     }
 });
 
-// Получить историю просмотров пользователя
 router.get('/:userId/history', async (req, res) => {
     const { userId } = req.params;
     try {
@@ -117,7 +115,6 @@ router.get('/:userId/history', async (req, res) => {
     }
 });
 
-// Получение рекомендаций для пользователя
 router.get('/:userId/recommendations', async (req, res) => {
     const { userId } = req.params;
 
@@ -125,17 +122,14 @@ router.get('/:userId/recommendations', async (req, res) => {
         const user = await User.findById(userId).populate('favorites').populate('history');
         if (!user) return res.status(404).json({ message: 'Пользователь не найден' });
 
-        // Получаем все избранные и исторические книги
         const favorites = user.favorites.map(book => book._id);
         const history = user.history.map(book => book._id);
 
-        // Здесь будет ваша логика для поиска рекомендаций
-        // Например, просто возвращаем избранные книги других пользователей
+        
         const recommendations = await User.find({ _id: { $ne: userId } })
             .populate('favorites')
             .exec();
 
-        // Соберем все книги из избранного других пользователей
         const recommendedBooks = [];
 
         recommendations.forEach(otherUser => {
@@ -146,7 +140,6 @@ router.get('/:userId/recommendations', async (req, res) => {
             });
         });
 
-        // Убираем дубликаты
         const uniqueRecommendations = Array.from(new Set(recommendedBooks.map(b => b._id)))
             .map(id => {
                 return recommendedBooks.find(b => b._id.equals(id));
