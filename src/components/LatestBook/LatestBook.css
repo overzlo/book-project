@@ -1,0 +1,46 @@
+
+.row {
+    margin: 0 auto;
+    padding: 20px;
+}
+.latest-books{
+    max-width: 1200px;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #f8f9fa; /* Светлый фон */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+.latest-books h2{
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #333; 
+}
+
+.lb-card {
+    width: 200px;
+    height: 280px;
+    border: none; /* Убираем рамку */
+    transition: transform 0.2s; /* Добавляем анимацию */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    background-color: antiquewhite;
+    padding: 0;
+
+}
+
+.lb-card:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.lb-card img {
+    width: 200px;
+    height: 220px;
+}
+
+.lb-card-footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    background-color: antiquewhite;
+}

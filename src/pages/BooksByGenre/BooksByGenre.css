@@ -1,0 +1,40 @@
+.books-by-page-container{
+    height: 600px;
+}
+.gb-card{
+    width: 200px;
+    height: 280px;
+    border: none; /* Убираем рамку */
+    transition: transform 0.2s; /* Добавляем анимацию */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    background-color:silver;
+    padding: 0;
+
+}
+.title-genre{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.gb-card:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.gb-card img {
+    width: 200px;
+    height: 220px;
+}
+
+.gb-card-title {
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    background-color:silver;
+}
+.pagination{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    width: 400px;
+}

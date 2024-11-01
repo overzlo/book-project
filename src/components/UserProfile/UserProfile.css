@@ -1,0 +1,39 @@
+.user-profile-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.user-profile-content {
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.logo-user{
+    width: 300px;
+    height: 200px;
+}
+.user-profile-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.user-info {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.user-info strong {
+    color: #333;
+}
+.link-admin {
+    font-weight: 100;
+    font-size: 30px;
+    color: #555;
+}

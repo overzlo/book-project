@@ -1,0 +1,6 @@
+.favic{
+    transition: all 1s;
+}
+.favic:hover{
+    background-color: brown;
+}
