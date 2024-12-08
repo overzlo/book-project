@@ -26,6 +26,8 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login  setToken={setToken}/>} />  
                 <Route path="/user/profile" element={<UserProfile />} />
+                <Route path="/user/profile/books/:id" element={<BookDetailPage />} />
+
                 <Route path="/admin/profile" element={<AdminPanel />} />
                 <Route path="/genre/:genre" element={<BooksByGenrePage />} />
                 <Route path="/genre/:genre/books/:id" element={<BookDetailPage />} />

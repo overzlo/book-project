@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const neo4j = require('neo4j-driver');
 require('dotenv').config();
 
-// Настройка MongoDB
 const connectMongoDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -12,7 +11,6 @@ const connectMongoDB = async () => {
     }
 };
 
-// Настройка Neo4j
 const driver = neo4j.driver(
     process.env.NEO4J_URI,
     neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASSWORD)

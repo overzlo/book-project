@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/books'; // Убедитесь, что URL правильный
+const API_URL = 'http://localhost:5000/api/books'; 
 
 export const addBook = async (bookData) => {
     const token = localStorage.getItem('token');
@@ -32,7 +32,6 @@ export const deleteBook = async (id) => {
     return response.data;
 };
 
-// Пример функции для получения всех книг
 export const getAllBooks = async () => {
     const response = await axios.get(API_URL);
     return response.data;
@@ -58,7 +57,6 @@ export const getTopRatedBooks = async () => {
     return response.data;
 };
 
-// Получение всех уникальных жанров
 export const getGenres = async () => {
     const response = await axios.get(`${API_URL}/genres`);
     return response.data;

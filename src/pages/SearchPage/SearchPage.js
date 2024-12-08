@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getBooksBySearch } from '../../api/bookAPI'; // Assuming this function already exists
-import { Container, ListGroup, Spinner } from 'react-bootstrap';
+import { Container, ListGroup, Spinner, Card } from 'react-bootstrap';
 
 const SearchPage = () => {
     const location = useLocation();
@@ -29,7 +29,7 @@ const SearchPage = () => {
 
     return (
         <Container className="mt-4">
-            <h2>Результаты поиска</h2>
+            <h2 className="text-center mb-4">Результаты поиска</h2>
             {loading ? (
                 <div className="text-center mt-5">
                     <Spinner animation="border" variant="primary" />
@@ -38,11 +38,19 @@ const SearchPage = () => {
                 <ListGroup>
                     {books.length > 0 ? (
                         books.map(book => (
-                            <ListGroup.Item key={book._id}>
-                                <h5>{book.title}</h5>
-                                <p><strong>Автор:</strong> {book.author}</p>
-                                <p><strong>Жанр:</strong> {book.genre}</p>
-                                <p>{book.description}</p>
+                            <ListGroup.Item key={book._id} className="mb-3">
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>{book.title}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">
+                                            <strong>Автор:</strong> {book.author} | <strong>Жанр:</strong> {book.genre}
+                                        </Card.Subtitle>
+                                        <Card.Text>
+                                            {book.description.length > 150 ? `${book.description.slice(0, 150)}...` : book.description}
+                                        </Card.Text>
+                                        <Card.Link href={`/books/${book._id}`} className="btn btn-primary">Подробнее</Card.Link>
+                                    </Card.Body>
+                                </Card>
                             </ListGroup.Item>
                         ))
                     ) : (

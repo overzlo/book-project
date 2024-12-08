@@ -16,7 +16,7 @@ const BookSchema = new mongoose.Schema({
     rating: { type: Number, default: 0 },
     coverUrl: { type: String },
     reviews: [reviewChema]
-} , { timestamps: true });;
+} , { timestamps: true });; 
 
 BookSchema.methods.updateRating = function () {
     if (this.reviews.length === 0) {

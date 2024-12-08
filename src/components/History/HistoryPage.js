@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { getUserHistory } from '../../api/userAPI'; 
-import { getUserData } from '../../api/userAPI'; 
+import { getUserHistory } from '../../api/userAPI';
+import { getUserData } from '../../api/userAPI';
 import './History.css'; // Импортируем файл стилей
+import { Link } from 'react-router-dom';
 
 const HistoryPage = () => {
-    const [history, setHistory] = useState([]); 
+    const [history, setHistory] = useState([]);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const userData = await getUserData(); 
+                const userData = await getUserData();
                 setUser(userData);
-                
-                const userHistory = await getUserHistory(userData._id); 
+
+                const userHistory = await getUserHistory(userData._id);
                 setHistory(userHistory);
             } catch (error) {
                 console.error('Ошибка при загрузке истории пользователя:', error);
@@ -30,7 +31,8 @@ const HistoryPage = () => {
                 {history.length > 0 ? (
                     <div className="history-scrollable">
                         {history.map(book => (
-                            <li key={book._id} className="history-item">{book.title}</li>
+                            <Link to={`books/${book._id}`}>
+                                <li key={book._id} className="history-item">{book.title}</li></Link>
                         ))}
                     </div>
                 ) : (

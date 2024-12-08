@@ -1,12 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { getUserData } from '../api/userAPI';
- // Импортируем функцию для получения данных пользователя
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem('token'));
-    const [role, setRole] = useState(null); // Добавляем состояние для роли
+    const [role, setRole] = useState(null);
 
     const logout = () => {
         setToken(null);
@@ -15,15 +14,15 @@ export const AuthProvider = ({ children }) => {
     };
 
     const login = (newToken) => {
-        setToken(newToken); // Устанавливаем токен
-        localStorage.setItem('token', newToken); // Сохраняем в localStorage
+        setToken(newToken);
+        localStorage.setItem('token', newToken);
     };
-    
+
 
     const fetchUserData = async () => {
         try {
-            const response = await getUserData(); // Получаем данные пользователя
-            setRole(response.role); // Устанавливаем роль
+            const response = await getUserData();
+            setRole(response.role);
         } catch (error) {
             console.error('Ошибка при получении данных пользователя:', error);
         }
@@ -33,7 +32,7 @@ export const AuthProvider = ({ children }) => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
             setToken(storedToken);
-            fetchUserData(); // Получаем данные пользователя при загрузке
+            fetchUserData();
         }
     }, []);
 

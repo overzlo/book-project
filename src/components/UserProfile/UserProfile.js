@@ -7,6 +7,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { MdAdminPanelSettings } from "react-icons/md";
 import Recommendations from '../Recommendations/Recommendations';
+import ReviewComp from '../ReviewComp/ReviewComp';
 
 const UserProfile = ({ token }) => {
     const [user, setUser] = useState(null);
@@ -27,16 +28,16 @@ const UserProfile = ({ token }) => {
                     <FaRegUserCircle className='logo-user' />
                     <div className="user-info">
                         <p><strong>Email:</strong> {user.email}</p>
-                        {user.role === 'admin' && (  
-                        <p>
-                            <Link to ="/admin/profile" className='link-admin'>Перейти в админскую панель <MdAdminPanelSettings/></Link>
-                        </p>
-                    )}
+                        {user.role === 'admin' && (
+                            <p>
+                                <Link to="/admin/profile" className='link-admin'>Перейти в админскую панель <MdAdminPanelSettings /></Link>
+                            </p>
+                        )}
                     </div>
                     <HistoryPage userId={user._id} />
                     <FavoritesPage userId={user._id} />
                     <Recommendations userId={user._id} />
-
+                    <ReviewComp userId={user._id} />
                 </div>
             ) : (
                 <p>Загрузка...</p>

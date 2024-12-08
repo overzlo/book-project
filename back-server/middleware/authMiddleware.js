@@ -8,7 +8,7 @@ const verifyToken = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) return res.status(401).json({ message: 'Ошибка авторизации' });
     
-        console.log("Decoded token:", decoded); // Добавьте эту строку для отладки
+        console.log("Decoded token:", decoded); 
         const user = await User.findById(decoded.userId);
         console.log('user:', user);
         if (!user) return res.status(404).json({ message: 'Пользователь не найден' });

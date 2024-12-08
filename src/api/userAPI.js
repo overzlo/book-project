@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const API_URL = 'http://localhost:5000/api';
 
@@ -15,16 +15,15 @@ export const loginUser = async (email, password) => {
 
 
 export const getUserData = async () => {
-    const token = localStorage.getItem('token'); // Получаем токен из localStorage
-    console.log("Текущий токен:", token); // Выводим токен для проверки
+    const token = localStorage.getItem('token');
+    console.log("Текущий токен:", token);
 
     if (!token) {
-        throw new Error("Токен не найден"); // Обрабатываем случай, когда токен отсутствует
+        throw new Error("Токен не найден");
     }
 
-    // Декодируем токен
     const decoded = jwtDecode(token);
-    console.log("Декодированный токен:", decoded); // Выводим декодированное содержимое
+    console.log("Декодированный токен:", decoded);
 
     const response = await axios.get(`${API_URL}/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -40,11 +39,11 @@ export const addBookToHistory = async (userId, bookId) => {
 };
 
 export const getUserHistory = async (userId) => {
-    const token = localStorage.getItem('token'); // Получаем токен из localStorage
+    const token = localStorage.getItem('token'); 
     const response = await axios.get(`${API_URL}/users/${userId}/history`, {
         headers: { Authorization: `Bearer ${token}` },
     });
-    return response.data; 
+    return response.data;
 };
 
 export const addBookToFavorites = async (userId, bookId) => {
@@ -75,4 +74,17 @@ export const getRecommendations = async (userId) => {
         headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
+};
+
+export const getUserReviews = async (userId) => {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get(`${API_URL}/users/${userId}/reviews`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Ошибка при получении отзывов пользователя:', error);
+        throw error;
+    }
 };

@@ -3,6 +3,7 @@ import { getFavoriteBooks, removeBookFromFavorites } from '../../api/userAPI';
 import Card from 'react-bootstrap/Card';
 import './FavComponent.css'; // Импортируем файл стилей
 import { CiBookmarkRemove } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 const FavComponent = ({ userId }) => {
     const [favorites, setFavorites] = useState([]);
@@ -32,7 +33,9 @@ const FavComponent = ({ userId }) => {
                     <Card key={book._id} className="favorites-card">
                         <Card.Img variant="top" src={book.coverUrl} alt={`${book.title} cover`} className="favorites-card-img" />
                         <Card.Body>
-                            <Card.Title className="favorites-card-title">{book.title}</Card.Title>
+                        <Link to={`books/${book._id}`}>
+
+                            <Card.Title className="favorites-card-title">{book.title}</Card.Title> </Link>
                         </Card.Body>
                         <CiBookmarkRemove onClick={() => handleRemoveFromFavorites(book._id)} className='remove'>
                             Удалить из избранного

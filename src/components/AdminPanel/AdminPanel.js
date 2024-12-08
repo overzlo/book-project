@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getAllUsers, updateUserRole, deleteUser } from '../../api/adminAPI';
 import AdminBookPanel from '../AdminBookPanel/AdminBookPanel';
+import { Table, Button, Dropdown } from 'react-bootstrap';
+
 const AdminPanel = () => {
     const [users, setUsers] = useState([]);
-    
+
     useEffect(() => {
         fetchUsers();
     }, []);
@@ -15,51 +17,53 @@ const AdminPanel = () => {
 
     const handleRoleChange = async (id, role) => {
         await updateUserRole(id, role);
-        fetchUsers(); // Обновляем список после изменения роли
+        fetchUsers(); 
     };
 
     const handleDeleteUser = async (id) => {
         await deleteUser(id);
-        fetchUsers(); // Обновляем список после удаления пользователя
+        fetchUsers(); 
     };
 
     return (
         <>
-        <div>
-            <h2>Управление пользователями</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Имя</th>
-                        <th>Email</th>
-                        <th>Роль</th>
-                        <th>Действия</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((user) => (
-                        <tr key={user._id}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>
-                                <select
-                                    value={user.role}
-                                    onChange={(e) => handleRoleChange(user._id, e.target.value)}
-                                >
-                                    <option value="user">User</option>
-                                    <option value="admin">Admin</option>
-                                </select>
-                            </td>
-                            <td>
-                                <button onClick={() => handleDeleteUser(user._id)}>Удалить</button>
-                            </td>
+            <div>
+            <h1 className="text-center">Панель администратора</h1>
+                <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Email</th>
+                            <th>Роль</th>
+                            <th>Действия</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-        <AdminBookPanel/>
-                    </>
+                    </thead>
+                    <tbody>
+                        {users.map((user) => (
+                            <tr key={user._id}>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                            {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item onClick={() => handleRoleChange(user._id, 'user')}>User</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => handleRoleChange(user._id, 'admin')}>Admin</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </td>
+                                <td>
+                                    <Button variant="danger" onClick={() => handleDeleteUser(user._id)}>Удалить</Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </div>
+            <AdminBookPanel />
+        </>
     );
 };
 

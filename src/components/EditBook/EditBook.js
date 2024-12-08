@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // Для получения параметров маршрута
-import { getBookById, updateBook } from '../../api/bookAPI'; // Импортируем функции для получения и обновления книги
+import { useParams } from 'react-router-dom';
+import { getBookById, updateBook } from '../../api/bookAPI';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 const EditBook = () => {
-    const { id } = useParams(); // Получаем ID книги из параметров маршрута
+    const { id } = useParams(); 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [genre, setGenre] = useState('');
@@ -17,7 +18,7 @@ const EditBook = () => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const book = await getBookById(id); // Получаем книгу по ID
+                const book = await getBookById(id);
                 setTitle(book.title);
                 setAuthor(book.author);
                 setGenre(book.genre);
@@ -46,21 +47,87 @@ const EditBook = () => {
     };
 
     return (
-        <div>
-            <h2>Редактировать книгу</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)} required />
-                <input type="text" placeholder="Автор" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-                <input type="text" placeholder="Жанр" value={genre} onChange={(e) => setGenre(e.target.value)} required />
-                <textarea placeholder="Описание" value={description} onChange={(e) => setDescription(e.target.value)} required></textarea>
-                <input type="number" placeholder="Год публикации" value={publishedYear} onChange={(e) => setPublishedYear(e.target.value)} required />
-                <input type="number" placeholder="Рейтинг" value={rating} onChange={(e) => setRating(e.target.value)} required />
-                <input type="text" placeholder="Ссылка на обложку" value={coverUrl} onChange={(e) => setCoverUrl(e.target.value)} required />
-                <button type="submit">Обновить книгу</button>
-            </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {success && <p style={{ color: 'green' }}>{success}</p>}
-        </div>
+        <Container className="mt-4">
+            <h2 className="text-center">Редактировать книгу</h2>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formTitle">
+                    <Form.Label>Название</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Введите название книги"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formAuthor">
+                    <Form.Label>Автор</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Введите имя автора"
+                        value={author}
+                        onChange={(e) => setAuthor(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formGenre">
+                    <Form.Label>Жанр</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Введите жанр книги"
+                        value={genre}
+                        onChange={(e) => setGenre(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formDescription">
+                    <Form.Label>Описание</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={3}
+                        placeholder="Введите описание книги"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formPublishedYear">
+                    <Form.Label>Год публикации</Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder="Введите год публикации"
+                        value={publishedYear}
+                        onChange={(e) => setPublishedYear(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formRating">
+                    <Form.Label>Рейтинг</Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder="Введите рейтинг книги"
+                        value={rating}
+                        onChange={(e) => setRating(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formCoverUrl">
+                    <Form.Label>Ссылка на обложку</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Введите ссылку на обложку книги"
+                        value={coverUrl}
+                        onChange={(e) => setCoverUrl(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+                <Button variant="primary" type="submit" className="mt-3">
+                    Обновить книгу
+                </Button>
+            </Form>
+            {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
+            {success && <Alert variant="success" className="mt-3">{success}</Alert>}
+        </Container>
     );
 };
 

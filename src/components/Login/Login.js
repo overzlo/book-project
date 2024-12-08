@@ -18,10 +18,9 @@ const Login = () => {
         try {
             const data = await loginUser(email, password);
             localStorage.setItem('token', data.token);
-            login(data.token); //
+            login(data.token);
             const userData = await getUserData(); 
             setRole(userData.role); 
-
             navigate('/user/profile');
 
         } catch (error) {

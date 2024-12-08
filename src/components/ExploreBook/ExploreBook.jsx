@@ -3,13 +3,14 @@ import { getSpecificBooks } from '../../api/bookAPI';
 import React, { useEffect, useState } from 'react';
 import img from '../../images/tcimage2.jpg'
 import './ExploreBook.css'
+import { Link } from 'react-router-dom';
 
 function ExploreBook() {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const specificBookIds = ["67214b97fc78f4dccab49bbc", "67214bf4fc78f4dccab49bc4", "67214c5afc78f4dccab49bc6", "67214cd0fc78f4dccab49bc8"]; // Задаем нужные ID
+            const specificBookIds = ["67214b97fc78f4dccab49bbc", "67214bf4fc78f4dccab49bc4", "67214c5afc78f4dccab49bc6", "67214cd0fc78f4dccab49bc8"];
             const data = await getSpecificBooks(specificBookIds);
             setBooks(data);
         };
@@ -25,9 +26,11 @@ function ExploreBook() {
                     <div className='cards'>
                         {books.map(book => (
                             <div className='card' key={book._id}>
-                                <div className='card_img'>
-                                    <img src={book.coverUrl} alt={book.title} />
-                                </div>
+                                <Link to={`books/${book._id}`}>
+                                    <div className='card_img'>
+                                        <img src={book.coverUrl} alt={book.title} />
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -40,7 +43,7 @@ function ExploreBook() {
 
 
         </section>
-        );
+    );
 }
 
 export default ExploreBook;

@@ -162,7 +162,7 @@ router.get('/', verifyToken, adminOnly, async (req, res) => {
 });
 router.get('/all', verifyToken, adminOnly, async (req, res) => {
     try {
-        const users = await User.find().select('-password'); // Исключаем пароли
+        const users = await User.find().select('-password'); //
         res.json(users);
     } catch (error) {
         res.status(500).json({ message: 'Ошибка при получении списка пользователей', error });
@@ -194,13 +194,26 @@ router.delete('/:id', verifyToken, adminOnly, async (req, res) => {
 
 router.get('/me', verifyToken, async (req, res) => {
     try {
-        const user = await User.findById(req.user._id); // Получаем ID пользователя из токена
+        const user = await User.findById(req.user._id); 
         if (!user) return res.status(404).json({ message: 'Пользователь не найден' });
-        res.json(user); // Возвращаем данные пользователя
+        res.json(user); 
     } catch (error) {
         res.status(500).json({ message: 'Ошибка при получении пользователя', error });
     }
 });
 
+router.get('/:userId/reviews', async (req, res) => {
+    const { userId } = req.params;
+    try {
+        const user = await User.findById(userId).populate('reviews');
+        if (!user) return res.status(404).json({ message: 'Пользователь не найден' });
+        const userReviews = await Review.find({ user: userId }).populate('book');
+        res.json(userReviews);
+
+        
+    } catch (error) {
+        res.status(500).json({ message: 'Ошибка при получении отзывов', error });
+    }
+});
 
 module.exports = router;

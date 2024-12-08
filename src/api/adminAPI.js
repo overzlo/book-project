@@ -1,8 +1,8 @@
-// src/api/adminAPI.js
+
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
-const API_URL = 'http://localhost:5000/api/users'; // убедитесь, что этот путь совпадает
+const API_URL = 'http://localhost:5000/api/users'; 
 
 export const getAllUsers = async () => {
     const token = localStorage.getItem('token');

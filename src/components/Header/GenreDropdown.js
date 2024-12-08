@@ -21,7 +21,7 @@ const GenreDropdown = () => {
     }, []);
 
     const handleGenreSelect = (genre) => {
-        navigate(`/genre/${genre}`); // Переход на страницу с выбранным жанром
+        navigate(`/genre/${genre}`);
     };
 
     return (

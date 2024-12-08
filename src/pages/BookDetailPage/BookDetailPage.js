@@ -10,6 +10,8 @@ import Container from 'react-bootstrap/Container';
 import FavButton from '../../components/FavButton/FavButton';
 import './BookDetailPage.css';
 import AddReview from '../../components/AddReview/AddReview';
+import { Alert } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const BookDetailPage = () => {
     const { id } = useParams();
@@ -33,7 +35,6 @@ const BookDetailPage = () => {
         fetchBook();
     }, [id]);
 
-    // Функция для обновления отзывов на странице после добавления нового
     const handleReviewAdded = (newReview) => {
         setBook(prevBook => ({
             ...prevBook,
@@ -60,7 +61,7 @@ const BookDetailPage = () => {
                             <Card.Text><strong>Автор:</strong> {book.author}</Card.Text>
                             <Card.Text><strong>Жанр:</strong> {book.genre}</Card.Text>
                             <Card.Text><strong>Год публикации:</strong> {book.publishedYear}</Card.Text>
-                            <Card.Text><strong>Рейтинг:</strong> {book.rating}</Card.Text>
+                            <Card.Text><strong>Рейтинг:</strong> {book.rating.toFixed(1)}</Card.Text>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -69,13 +70,18 @@ const BookDetailPage = () => {
             <Row className="my-4">
                 <Col md={12}>
                     <h3>Отзывы</h3>
-                    <ul>
-                        {book.reviews.map(review => (
-                            <li key={review._id}>
-                                <strong>Рейтинг: {review.rating}</strong> - {review.comment}
-                            </li>
-                        ))}
-                    </ul>
+                    {book.reviews.length > 0 ? (
+                        <ListGroup variant="flush">
+                            {book.reviews.map(review => (
+                                <ListGroup.Item key={review._id} >
+                                    <strong>Рейтинг: {review.rating}</strong>
+                                    <p>{review.comment}</p>
+                                </ListGroup.Item>
+                            ))}
+                        </ListGroup>
+                    ) : (
+                        <Alert variant="info">Отзывов еще нет. Будьте первыми!</Alert>
+                    )}
                     {user && (
                         <AddReview bookId={book._id} userId={user._id} onReviewAdded={handleReviewAdded} />
                     )}
