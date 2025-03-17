@@ -171,8 +171,7 @@ router.get('/all', verifyToken, adminOnly, async (req, res) => {
 router.put('/:id', verifyToken, adminOnly, async (req, res) => {
     const { id } = req.params;
     const { role } = req.body;
-    console.log("ID пользователя:", id);
-    console.log("Новая роль:", role);
+
     try {
         const user = await User.findByIdAndUpdate(id, { role }, { new: true });
         if (!user) return res.status(404).json({ message: 'Пользователь не найден' });
