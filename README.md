@@ -1,8 +1,6 @@
-# GitHub Documentation for NoSQL Book Recommendation System
-
 ## Project Overview
 
-This project is a book recommendation system built with a modern tech stack including React, Node.js, Express, and MongoDB. It features user authentication, book catalog management, personalized recommendations, and administrative controls.
+This project is a book store system built with a modern tech stack including React, Node.js, Express, and MongoDB. It features user authentication, book catalog management, personalized recommendations, and administrative controls.
 
 ## Features
 
