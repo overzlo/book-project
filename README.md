@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# GitHub Documentation for NoSQL Book Recommendation System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project is a book recommendation system built with a modern tech stack including React, Node.js, Express, and MongoDB. It features user authentication, book catalog management, personalized recommendations, and administrative controls.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### User System
+- Registration and login functionality
+- User profiles with viewing history and favorites
+- Role-based access control (user/admin)
+- JWT authentication
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Book Management
+- Comprehensive book catalog with details
+- Genre-based categorization
+- Book rating and review system
+- Search functionality (title, author, genre)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Recommendation Engine
+- Collaborative filtering recommendations
+- Personalized suggestions based on user history
+- Popular books display
 
-### `npm test`
+### Admin Features
+- User management (role changes, deletion)
+- Book management (add/edit/delete)
+- System oversight
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technology Stack
 
-### `npm run build`
+### Frontend
+- **React**: Component-based UI
+- **React Bootstrap**: UI components and styling
+- **Axios**: HTTP requests to backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend
+- **Node.js**: JavaScript runtime
+- **Express**: Web application framework
+- **Mongoose**: MongoDB object modeling
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Database
+- **MongoDB**: NoSQL database
+- Document-based storage for users and books
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+### Prerequisites
+- Node.js (v14+)
+- MongoDB (v4+)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Setup
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies for both frontend and backend:
+   ```bash
+   cd frontend
+   npm install
+   cd ../backend
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Create a `.env` file in the backend directory with:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   PORT=8080
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Start the development servers:
+   ```bash
+   # In backend directory
+   npm start
+   
+   # In frontend directory
+   npm start
+   ```
 
-## Learn More
+## API Documentation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### User Routes
+- `POST /api/users/register` - User registration
+- `POST /api/users/login` - User login
+- `GET /api/users/:userId/history` - Get user history
+- `POST /api/users/:userId/history/:bookId` - Add to history
+- `GET /api/users/:userId/recommendations` - Get recommendations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Book Routes
+- `GET /api/books` - Get all books
+- `GET /api/books/search` - Search books
+- `GET /api/books/genre/:genre` - Get books by genre
+- `POST /api/books/:id/reviews` - Add review
 
-### Code Splitting
+### Admin Routes
+- `PUT /api/users/:id` - Update user role
+- `DELETE /api/users/:id` - Delete user
+- `POST /api/books` - Add new book
+- `DELETE /api/books/:id` - Delete book
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Database Models
 
-### Analyzing the Bundle Size
+### User Model
+```javascript
+{
+  name: String,
+  email: String,
+  password: String,
+  role: String, // 'user' or 'admin'
+  favorites: [ObjectId], // References to Book
+  history: [ObjectId] // References to Book
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Book Model
+```javascript
+{
+  title: String,
+  author: String,
+  genre: String,
+  description: String,
+  publishedYear: Number,
+  rating: Number,
+  coverUrl: String,
+  reviews: [{
+    user: ObjectId, // Reference to User
+    rating: Number,
+    comment: String,
+    createdAt: Date
+  }]
+}
+```
 
-### Making a Progressive Web App
+## Contribution Guidelines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Fork the repository
+2. Create a new branch for your feature
+3. Commit your changes with descriptive messages
+4. Push to your branch
+5. Submit a pull request
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is licensed under the MIT License.
 
-### Deployment
+## References
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React Documentation: https://react.dev
+- Node.js Documentation: https://nodejs.org
+- MongoDB Documentation: https://www.mongodb.com/docs/
+- Express Documentation: https://expressjs.com
