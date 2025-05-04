@@ -8,23 +8,31 @@ on:
       - master
 
 jobs:
-  semgrep:
-    name: Static Code Analysis with Semgrep
+  snyk:
+    name: snyk scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        - name: checkout
+          uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+        - name: nodejs setup
+          uses: actions/setup-node@v3
+          with:
+            node-version: '18'
 
-      - name: Install Semgrep
-        run: pip install semgrep
+        - name: install snyk
+          run: npm install -g snyk
 
-      - name: Run Semgrep Scan
-        run: semgrep scan --config p/ci --exclude node_modules
+        - name: authenticate snyk
+          run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+        - name: run snyk test (backend)
+          working-directory: backend
+          run: snyk test
+
+        - name: run snyk test (frontend)
+          working-directory: frontend
+          run: snyk test
 
   build-backend:
     name: Build Backend
