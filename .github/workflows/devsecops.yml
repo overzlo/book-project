@@ -79,61 +79,20 @@ jobs:
       - name: install dependencies
         run: npm install
 
-  zap-scan:
-    name: Run OWASP ZAP Scan
+  zap_scan:
+    name: OWASP ZAP Scan
     runs-on: ubuntu-latest
-
+    needs: build-frontend
     steps:
-      # Шаг 1: Checkout кода
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Шаг 2: Настройка Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      # Шаг 3: Установка зависимостей (если требуется)
-      - name: Install dependencies (backend)
-        run: npm install
-        working-directory: backend
-
-      - name: Install dependencies (frontend)
-        run: npm install
-        working-directory: frontend
-
-      # Шаг 4: Запуск серверов
-      - name: Start Backend
-        run: npm start &
-        working-directory: backend
-
-      - name: Start Frontend
-        run: npm start &
-        working-directory: frontend
-
-      # Шаг 5: Ожидание старта серверов
-      - name: Wait for servers to start
-        run: sleep 25
-
-      # Шаг 6: Запуск OWASP ZAP Baseline Scan
-      - name: Run OWASP ZAP Baseline Scan
+      - name: Run ZAP baseline scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
-          target: 'http://localhost:3000'  # Укажите URL вашего приложения
-          fail_action: false  # Не завершать процесс при нахождении уязвимостей
-          allow_issue_writing: false  # Не записывать найденные уязвимости
-          config_file: .zap/config.yaml  # Укажите путь к вашему конфигурационному файлу, если он есть
+          target: 'https://8dd6-178-90-44-225.ngrok-free.app/'
+          fail_action: false
+          allow_issue_writing: false
 
-      # Шаг 7: Загрузка отчета ZAP
-      - name: Upload OWASP ZAP Report
+      - name: Upload ZAP Report
         uses: actions/upload-artifact@v4
         with:
           name: zap-report
-          path: owasp-zap-report.html  # Укажите путь к вашему отчету
-
-      # Шаг 8: Остановка серверов
-      - name: Kill background processes
-        if: always()
-        run: |
-          pkill -f "npm start" || true
+          path: owasp-zap-report.html
