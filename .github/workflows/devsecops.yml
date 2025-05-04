@@ -8,6 +8,24 @@ on:
       - master
 
 jobs:
+  semgrep:
+    name: Static Code Analysis with Semgrep
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Run Semgrep Scan
+        run: semgrep scan --config p/ci --exclude node_modules
+
   build-backend:
     name: Build Backend
     runs-on: ubuntu-latest
