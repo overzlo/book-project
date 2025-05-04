@@ -9,7 +9,7 @@ on:
 
 jobs:
   snyk:
-    name: snyk scan
+    name: Snyk Scan
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
@@ -26,13 +26,26 @@ jobs:
       - name: auth snyk
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      - name: run snyk test (backend)
+      - name: run snyk test (backend) and generate report
         working-directory: backend
-        run: snyk test || true
+        run: snyk test --json > snyk-backend-report.json || true
 
-      - name: run snyk test (frontend)
+      - name: upload backend report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-backend-report
+          path: backend/snyk-backend-report.json
+
+      - name: run snyk test (frontend) and generate report
         working-directory: frontend
-        run: snyk test || true
+        run: snyk test --json > snyk-frontend-report.json || true
+
+      - name: upload frontend report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-frontend-report
+          path: frontend/snyk-frontend-report.json
+
 
   build-backend:
     name: Build Backend
