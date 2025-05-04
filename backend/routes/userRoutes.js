@@ -7,15 +7,14 @@ const bcrypt = require('bcrypt');
 const { verifyToken, adminOnly } = require('../middleware/authMiddleware');
 
 router.post('/register', async (req, res) => {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ name, email, password: hashedPassword, role });
+        const user = new User({ name, email, password: hashedPassword, role: 'admin' });
         await user.save();
         res.status(201).json({ message: "Успешная регистрация!!" });
-    }
-    catch (error) {
-        res.status(500).json({ message: "Ошибка!", error })
+    } catch (error) {
+        res.status(500).json({ message: "Ошибка при регистрации" });
     }
 });
 
@@ -38,7 +37,18 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ message: "Ошибка при входе", error });
     }
 });
-
+//
+// router.post('/login', async (req, res) => {
+//     const { email, password } = req.body;
+//     try {
+//         const user = await User.findOne({ email: email, password: password });
+//         if (!user) return res.status(404).json({ message: "Пользователь не найден" });
+//         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+//         res.json({ message: "Вход выполнен", token });
+//     } catch (error) {
+//         res.status(500).json({ message: "Ошибка при входе", error });
+//     }
+// });
 router.post('/:userId/favorites/:bookId', async (req, res) => {
     const { userId, bookId } = req.params;
     try {

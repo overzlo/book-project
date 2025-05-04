@@ -24,7 +24,7 @@ const UserProfile = ({ token }) => {
         <div className="user-profile-container">
             {user ? (
                 <div className="user-profile-content">
-                    <h1 className="user-profile-title">Профиль пользователя {user.name}</h1>
+                    <h1 className="user-profile-title">{user.name}</h1>
                     <FaRegUserCircle className='logo-user' />
                     <div className="user-info">
                         <p><strong>Email:</strong> {user.email}</p>

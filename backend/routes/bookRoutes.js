@@ -19,12 +19,11 @@ router.post('/add', async (req, res) => {
     try {
         const book = new Book({ title, author, genre, description, publishedYear, rating, coverUrl });
         await book.save();
-        res.status(201).json({ message: "Успешное добавление книги!!" });
+        res.status(201).json({ message: "Успешное добавление книги!!", book });
     }
     catch (error) {
-        res.status(500).json({ message: "Ошибка!", error })
+        res.status(500).json({ message: "Ошибка!", error });
     }
-        res.json(books); 
 });
 
 router.put('/:id', verifyToken, adminOnly, async (req, res) => {
@@ -70,8 +69,6 @@ router.post('/:bookId/reviews', async (req, res) => {
     try {
         const book = await Book.findById(bookId);
         if (!book) return res.status(404).json({ message: 'Книга не найдена!' });
-
-       
 
         const review = { user: userId, rating, comment };
         book.reviews.push(review);
