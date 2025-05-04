@@ -21,11 +21,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
       - name: install dependencies
         run: npm install
-
-      - name: start server
-        run: npm start
 
   build-frontend:
     name: Build Frontend
@@ -46,6 +44,3 @@ jobs:
 
       - name: install dependencies
         run: npm install
-
-      - name: build
-        run: npm run build
