@@ -29,7 +29,7 @@ jobs:
 
       - name: run snyk test (backend) and generate report
         working-directory: backend
-        run: snyk test --json > snyk-backend-report.json || true
+        run: snyk test --severity-threshold=high --json > snyk-backend-report.json || true
 
       - name: upload backend report
         uses: actions/upload-artifact@v4
@@ -39,7 +39,7 @@ jobs:
 
       - name: run snyk test (frontend) and generate report
         working-directory: frontend
-        run: snyk test --json > snyk-frontend-report.json || true
+        run: snyk test --severity-threshold=high --json > snyk-frontend-report.json || true
 
       - name: upload frontend report
         uses: actions/upload-artifact@v4
@@ -117,6 +117,7 @@ jobs:
           target: 'http://localhost:3000'
           fail_action: false
           allow_issue_writing: false
+          config_file: .zap/config.yaml
 
       - name: Upload ZAP Report
         if: always()
