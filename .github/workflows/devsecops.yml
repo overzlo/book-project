@@ -15,12 +15,12 @@ jobs:
       run:
         working-directory: backend
 
-    # Добавляем переменные окружения для тестов
+    # Переменные окружения для тестов
     env:
       NODE_ENV: test
       PORT: 5000
-      JWT_SECRET: ci_test_secret_key
-      # Не нужно указывать MONGODB_URI - будет использовать MongoDB Memory Server
+      JWT_SECRET: ${{ secrets.JWT_SECRET}}
+      # MongoDB URI не нужен, так как используется MongoMemoryServer
 
     steps:
       - name: Checkout code
@@ -39,10 +39,9 @@ jobs:
       # Создаем .env файл для тестов
       - name: Create .env file
         run: |
-          echo "NODE_ENV=test" >> .env
           echo "PORT=5000" >> .env
-          echo "JWT_SECRET=ci_test_secret_key" >> .env
-          # MONGODB_URI не указываем - будет использовать MongoDB Memory Server
+          echo "JWT_SECRET=$JWT_SECRET" >> .env
+          echo "NODE_ENV=test" >> .env
 
       - name: Run tests
         run: npm test
