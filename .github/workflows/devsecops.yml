@@ -79,17 +79,6 @@ jobs:
       - name: install dependencies
         run: npm install
 
-name: OWASP ZAP Scan
-
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-
-jobs:
   zap-scan:
     name: Run OWASP ZAP Scan
     runs-on: ubuntu-latest
