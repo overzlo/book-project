@@ -44,7 +44,7 @@ jobs:
           echo "NODE_ENV=test" >> .env
 
       - name: Run tests
-        run: npm test
+        run: npm run test
 
   build-frontend:
     name: Build Frontend
