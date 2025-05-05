@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f60c43e6-b28d-4ced-801d-7e8a8d336e42" name="Changes" comment="devsecops --snyk" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;overzlo&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/overzlo/book-project.git&quot;,
+    &quot;accountId&quot;: &quot;379c02eb-c3c9-4078-ae1c-714c5a836da3&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2uRUndpojrn45ylPb4ZmP8nPwki" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Taking Care of Details&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\practice\book-project-new\backend" />
+      <recent name="D:\practice\book-project-new\frontend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/book-project-new/backend/coverage/lcov-report/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f60c43e6-b28d-4ced-801d-7e8a8d336e42" name="Changes" comment="" />
+      <created>1742211048461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742211048461</updated>
+      <workItem from="1742211049698" duration="1715000" />
+      <workItem from="1742217222402" duration="63000" />
+      <workItem from="1742305859737" duration="4570000" />
+      <workItem from="1742325562472" duration="1019000" />
+      <workItem from="1742375950355" duration="1627000" />
+      <workItem from="1742383519881" duration="2000" />
+      <workItem from="1742396187268" duration="1925000" />
+      <workItem from="1742656478574" duration="8059000" />
+      <workItem from="1742921089013" duration="26000" />
+      <workItem from="1742985613397" duration="2715000" />
+      <workItem from="1742989639894" duration="1273000" />
+      <workItem from="1742995078173" duration="1748000" />
+      <workItem from="1742998048355" duration="3590000" />
+      <workItem from="1743100039673" duration="4000" />
+      <workItem from="1743103751736" duration="11000" />
+      <workItem from="1743169146537" duration="14000" />
+      <workItem from="1743334552198" duration="938000" />
+      <workItem from="1743339091575" duration="26000" />
+      <workItem from="1744887427206" duration="661000" />
+      <workItem from="1744896075072" duration="3158000" />
+      <workItem from="1744902842743" duration="3309000" />
+      <workItem from="1744963930314" duration="10380000" />
+      <workItem from="1744976078665" duration="3414000" />
+      <workItem from="1744979694061" duration="2088000" />
+      <workItem from="1744989736508" duration="3696000" />
+      <workItem from="1745390634384" duration="65000" />
+      <workItem from="1746091404401" duration="3474000" />
+      <workItem from="1746363927209" duration="1043000" />
+      <workItem from="1746365190269" duration="7028000" />
+      <workItem from="1746372715845" duration="1641000" />
+      <workItem from="1746456137077" duration="631000" />
+    </task>
+    <task id="LOCAL-00001" summary="-fix from semgrep">
+      <option name="closed" value="true" />
+      <created>1742212089145</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742212089146</updated>
+    </task>
+    <task id="LOCAL-00002" summary="-fix from semgrep">
+      <option name="closed" value="true" />
+      <created>1742212176258</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742212176258</updated>
+    </task>
+    <task id="LOCAL-00003" summary="-">
+      <option name="closed" value="true" />
+      <created>1742326347535</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742326347535</updated>
+    </task>
+    <task id="LOCAL-00004" summary="-">
+      <option name="closed" value="true" />
+      <created>1746367216026</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746367216026</updated>
+    </task>
+    <task id="LOCAL-00005" summary="-">
+      <option name="closed" value="true" />
+      <created>1746367513808</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746367513808</updated>
+    </task>
+    <task id="LOCAL-00006" summary="secrets">
+      <option name="closed" value="true" />
+      <created>1746367847057</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746367847057</updated>
+    </task>
+    <task id="LOCAL-00007" summary="secrets">
+      <option name="closed" value="true" />
+      <created>1746367924386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746367924386</updated>
+    </task>
+    <task id="LOCAL-00008" summary="secrets">
+      <option name="closed" value="true" />
+      <created>1746368125792</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746368125792</updated>
+    </task>
+    <task id="LOCAL-00009" summary="cicd">
+      <option name="closed" value="true" />
+      <created>1746368410554</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746368410554</updated>
+    </task>
+    <task id="LOCAL-00010" summary="cicd">
+      <option name="closed" value="true" />
+      <created>1746368765887</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746368765887</updated>
+    </task>
+    <task id="LOCAL-00011" summary="devsecops">
+      <option name="closed" value="true" />
+      <created>1746369066995</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746369066995</updated>
+    </task>
+    <task id="LOCAL-00012" summary="devsecops">
+      <option name="closed" value="true" />
+      <created>1746369168396</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746369168396</updated>
+    </task>
+    <task id="LOCAL-00013" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746369594687</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746369594687</updated>
+    </task>
+    <task id="LOCAL-00014" summary="devsecops --snyk without workflow interr">
+      <option name="closed" value="true" />
+      <created>1746369814576</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1746369814576</updated>
+    </task>
+    <task id="LOCAL-00015" summary="devsecops --snyk + report">
+      <option name="closed" value="true" />
+      <created>1746370056098</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1746370056098</updated>
+    </task>
+    <task id="LOCAL-00016" summary="devsecops --snyk + report">
+      <option name="closed" value="true" />
+      <created>1746370352438</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746370352438</updated>
+    </task>
+    <task id="LOCAL-00017" summary="devsecops --snyk + report">
+      <option name="closed" value="true" />
+      <created>1746370750294</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746370750294</updated>
+    </task>
+    <task id="LOCAL-00018" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746371529403</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746371529403</updated>
+    </task>
+    <task id="LOCAL-00019" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746371834481</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746371834482</updated>
+    </task>
+    <task id="LOCAL-00020" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746372443206</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1746372443206</updated>
+    </task>
+    <task id="LOCAL-00021" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746373121812</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1746373121812</updated>
+    </task>
+    <task id="LOCAL-00022" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746373143324</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1746373143324</updated>
+    </task>
+    <task id="LOCAL-00023" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746373696241</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1746373696241</updated>
+    </task>
+    <task id="LOCAL-00024" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746373980051</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1746373980051</updated>
+    </task>
+    <task id="LOCAL-00025" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746456439725</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1746456439726</updated>
+    </task>
+    <task id="LOCAL-00026" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746456529649</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1746456529649</updated>
+    </task>
+    <task id="LOCAL-00027" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746456690924</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1746456690925</updated>
+    </task>
+    <task id="LOCAL-00028" summary="devsecops --snyk">
+      <option name="closed" value="true" />
+      <created>1746456738510</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1746456738510</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="-fix from semgrep" />
+    <MESSAGE value="-" />
+    <MESSAGE value="secrets" />
+    <MESSAGE value="cicd" />
+    <MESSAGE value="devsecops" />
+    <MESSAGE value="devsecops --snyk without workflow interr" />
+    <MESSAGE value="devsecops --snyk + report" />
+    <MESSAGE value="devsecops --snyk" />
+    <option name="LAST_COMMIT_MESSAGE" value="devsecops --snyk" />
+  </component>
+</project>
