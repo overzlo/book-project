@@ -13,31 +13,24 @@ jobs:
     name: Snyk Scan
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: nodejs setup
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: install snyk
+      - name: Install Snyk
         run: npm install -g snyk
 
-      - name: auth snyk
+      - name: Authenticate Snyk
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-
-
-      - name: run snyk test (frontend) and generate report
+      - name: Run Snyk test (frontend)
         working-directory: frontend
         run: snyk test
 
-      - name: upload frontend report
-        uses: actions/upload-artifact@v4
-        with:
-          name: snyk-frontend-report
-          path: frontend/snyk-frontend-report.json
 
 
   build-frontend:
