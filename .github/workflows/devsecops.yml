@@ -10,16 +10,16 @@ on:
 
 jobs:
   snyk:
-    name: Snyk Scan
+    name: Snyk Scan (Python)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          node-version: '18'
+          python-version: '3.11'
 
       - name: Install Snyk
         run: npm install -g snyk
@@ -27,27 +27,24 @@ jobs:
       - name: Authenticate Snyk
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      - name: Run Snyk test (frontend)
+      - name: Run Snyk test (Python project in frontend/)
         working-directory: frontend
-        run: snyk test
+        run: snyk test --file=requirements.txt --package-manager=pip --json > snyk-frontend-report.json
 
-
+      - name: Upload Snyk Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-frontend-report
+          path: frontend/snyk-frontend-report.json
 
   build-frontend:
-    name: Build Frontend
+    name: Dummy Build (for dependency)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
-      - name: setup nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: install dependencies
-        run: npm install
+      - name: Print placeholder
+        run: echo "No actual frontend build. Added for pipeline structure."
 
   zap-scan:
     name: OWASP ZAP Scan
