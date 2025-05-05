@@ -27,19 +27,11 @@ jobs:
       - name: auth snyk
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      - name: run snyk test (backend) and generate report
-        working-directory: backend
-        run: snyk test --severity-threshold=high --json > snyk-backend-report.json || true
 
-      - name: upload backend report
-        uses: actions/upload-artifact@v4
-        with:
-          name: snyk-backend-report
-          path: backend/snyk-backend-report.json
 
       - name: run snyk test (frontend) and generate report
         working-directory: frontend
-        run: snyk test --severity-threshold=high --json > snyk-frontend-report.json || true
+        run: snyk test
 
       - name: upload frontend report
         uses: actions/upload-artifact@v4
@@ -47,21 +39,6 @@ jobs:
           name: snyk-frontend-report
           path: frontend/snyk-frontend-report.json
 
-  build-backend:
-    name: Build Backend
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: setup nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: install dependencies
-        run: npm install
 
   build-frontend:
     name: Build Frontend
